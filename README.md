@@ -41,3 +41,20 @@ Tema custom tersedia di:
 1. Pindahkan folder `wp-content/themes/berita-lite` ke instalasi WordPress.
 2. Aktifkan tema **Berita Lite** dari Dashboard.
 3. Buka `Appearance > Ad Manager` untuk set placement iklan.
+
+### Tampilan homepage
+
+Tema sudah diperbarui ke gaya portal berita modern (hero headline, grid headline, list berita terbaru, trending strip) sebagai referensi visual yang serupa dengan kebutuhan.
+
+### Demo 100 postingan original
+
+File demo tersedia di:
+
+`/home/runner/work/berita/berita/demo/berita-lite-demo-100-posts.xml`
+
+Cara import:
+
+1. Masuk `Tools > Import > WordPress`.
+2. Upload file XML di atas.
+3. Pilih author saat import, centang download attachments bila diperlukan.
+4. Buka halaman depan untuk melihat tampilan dengan 100 postingan.
