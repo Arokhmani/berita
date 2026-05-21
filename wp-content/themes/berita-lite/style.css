@@ -1,0 +1,59 @@
+/*
+Theme Name: Berita Lite
+Theme URI: https://example.com/berita-lite
+Author: Berita Team
+Description: Tema berita WordPress super ringan, SEO-friendly, dan siap monetisasi.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+Text Domain: berita-lite
+*/
+
+:root {
+  --bg: #fff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --primary: #0ea5e9;
+  --border: #e5e7eb;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--primary); }
+.container { width: min(100%, 1080px); margin-inline: auto; padding: 0 16px; }
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header__bar { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 14px 0; }
+.site-title { font-size: 1.2rem; font-weight: 800; letter-spacing: .2px; }
+.menu { display: flex; gap: 14px; padding: 0; margin: 0; list-style: none; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; }
+.post-card, .single, .widget, .author-box, .comment-body { border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: #fff; }
+.post-card + .post-card { margin-top: 14px; }
+.entry-title { margin: 0 0 10px; line-height: 1.3; font-size: clamp(1.2rem, 2.6vw, 2rem); }
+.entry-meta { color: var(--muted); font-size: .9rem; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.verified-badge { color: #3b82f6; font-size: .9rem; }
+.article-actions, .social-share, .comment-reactions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.btn-icon { border: 1px solid var(--border); border-radius: 999px; padding: 8px 10px; font-size: .9rem; background: #fff; cursor: pointer; }
+.btn-icon:hover { border-color: var(--primary); color: var(--primary); }
+.ad-slot { margin: 14px 0; }
+.ad-slot--anchor { position: fixed; left: 12px; right: 12px; bottom: 10px; z-index: 999; max-width: 1080px; margin: 0 auto; }
+.ad-slot--parallax { background-attachment: fixed; background-size: cover; border-radius: 10px; overflow: hidden; }
+.author-box { display: grid; gap: 12px; }
+.author-social { display: flex; gap: 10px; }
+.breadcrumbs { font-size: .85rem; color: var(--muted); margin: 12px 0; }
+.breadcrumbs ol { list-style: none; display: flex; gap: 8px; padding: 0; margin: 0; flex-wrap: wrap; }
+.modal { position: fixed; inset: 0; background: rgba(17,24,39,.65); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 1000; }
+.modal.is-open { display: flex; }
+.modal__dialog { background: #fff; border-radius: 12px; max-width: 560px; width: 100%; padding: 16px; }
+.screen-reader-text { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; }
+  .menu { overflow: auto; }
+}

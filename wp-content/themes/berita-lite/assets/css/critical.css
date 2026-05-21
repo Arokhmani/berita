@@ -1,0 +1,5 @@
+.single img,
+.post-card img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+.wp-block-image, figure { margin: 12px 0; }
+.wp-block-quote, blockquote { border-left: 3px solid #e5e7eb; margin: 14px 0; padding-left: 12px; color: #374151; }
+
