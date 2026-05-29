@@ -1,0 +1,1715 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:version='2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/data'>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    
+    <!-- SEO Meta Tags Terintegrasi Blogger -->
+    <title><data:view.title.escaped/></title>
+    <meta expr:content='data:blog.metaDescription ?: data:blog.title' name='description'/>
+    <meta content='social media, paperdoll, marketplace, pwa, android installable, facebook clone, tabler icons, checkout whatsapp, donasi online' name='keywords'/>
+    <meta content='Paperdoll Media' name='author'/>
+    <meta content='index, follow' name='robots'/>
+    
+    <!-- Open Graph / Facebook SEO -->
+    <meta property="og:type" content="website"/>
+    <meta expr:content='data:blog.canonicalUrl' property="og:url"/>
+    <meta expr:content='data:blog.title' property="og:title"/>
+    <meta expr:content='data:blog.metaDescription' property="og:description"/>
+    <meta content="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&amp;h=630&amp;fit=crop" property="og:image"/>
+
+    <!-- PWA & Apple Web App Tags -->
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlBhcGVyZG9sbCBFbWVyYWxkIiwKICAic2hvcnRfbmFtZSI6ICJQYXBlcmRvbGwiLAogICJkZXNjcmlwdGlvbiI6ICJKYXJpbmdhbiBTb3NpYWwgJiBCZWxhbmphIE1vZGVybiIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwK  ImJhY2tncm91bmRfY29sb3IiOiAiI2YzZjRmNiIsCiAgInRoZW1lX2NvbG9yIjogIiMxMGI5ODEiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJodHRwczovL2Nkbi1pY29ucy1wbmcuZmxhdGljb20vNTEyLzkwODEvOTA4MTM5NS5wbmciLAogICAgICAic2l6ZXMiOiAiI2YwZmRmNCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIKICAgIH0KICBdCn0="/>
+    <meta name="theme-color" content="#10b981"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-title" content="Paperdoll"/>
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/9081/9081395.png"/>
+
+    <!-- Tabler Icons via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        orange: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Blogger Skin Section -->
+    <b:skin><![CDATA[
+        /* Sembunyikan scrollbar bawaan untuk kemulusan navigasi seluler */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Custom reaction popover dengan animasi pop-in lembut */
+        .reaction-popover {
+            animation: popIn 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.6) translateY(20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        /* Aturan khusus Blogger Layout Builder Mode */
+        body#layout {
+            padding-top: 20px;
+        }
+        body#layout header, body#layout .sidebar-section, body#layout .main-content {
+            margin-bottom: 15px;
+            border: 2px dashed #10b981 !important;
+            padding: 10px;
+        }
+    ]]></b:skin>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans antialiased overflow-x-hidden pb-16 md:pb-0 safe-top">
+
+    <!-- NOTIFIKASI TOAST -->
+    <div id="toast" class="fixed bottom-20 md:bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all-300 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-2 pointer-events-none">
+        <i class="ti ti-circle-check text-xl"></i>
+        <span id="toast-text" class="text-sm font-medium">Berhasil!</span>
+    </div>
+
+    <!-- HEADER UTAMA -->
+    <header class="bg-white fixed top-0 left-0 right-0 z-40 border-b border-gray-100 shadow-xs">
+        <div class="max-w-[1250px] mx-auto flex items-center justify-between px-4 h-14">
+            <!-- Bagian Judul Website -->
+            <div class="flex items-center gap-2" onclick="switchTab('beranda')">
+                <span class="font-black text-2xl tracking-tight text-emerald-600 cursor-pointer hover:opacity-90 transition select-none">
+                    <b:section id='header-title-sec' maxwidgets='1' showaddelement='no'>
+                        <b:widget id='Header1' locked='true' title='Nama Website (Header)' type='Header' version='2'>
+                            <b:widget-settings>
+                                <b:widget-setting name='displayUrl'/>
+                                <b:widget-setting name='displayHeight'>0</b:widget-setting>
+                                <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+                                <b:widget-setting name='useImage'>false</b:widget-setting>
+                                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                                <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+                                <b:widget-setting name='displayWidth'>0</b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'>
+                                <data:blog.title/>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </span>
+            </div>
+
+            <!-- Bagian Kanan: Aksi Cepat (Donasi, Search, Messenger, Menu Garis Tiga) -->
+            <div class="flex items-center gap-2">
+                <!-- Tombol Donasi dengan pop-up kreatif -->
+                <button onclick="openDonationModal('Paperdoll Platform')" class="bg-orange-50 hover:bg-orange-100 text-orange-600 p-2.5 rounded-full transition active:scale-95 relative" title="Donasi &amp; Dukung Kami">
+                    <i class="ti ti-gift text-lg animate-bounce"></i>
+                    <span class="absolute -top-0.5 -right-0.5 bg-red-500 w-2.5 h-2.5 rounded-full animate-ping"></span>
+                    <span class="absolute -top-0.5 -right-0.5 bg-red-500 w-2.5 h-2.5 rounded-full"></span>
+                </button>
+                <button onclick="focusSearchInput()" class="bg-gray-100 hover:bg-gray-200 text-gray-800 p-2.5 rounded-full transition active:scale-95">
+                    <i class="ti ti-search text-lg"></i>
+                </button>
+                <button onclick="showCartModal()" class="relative bg-gray-100 hover:bg-gray-200 text-gray-800 p-2.5 rounded-full transition active:scale-95">
+                    <i class="ti ti-shopping-cart text-lg"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-orange-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-white">0</span>
+                </button>
+                <button onclick="switchTab('menu')" class="bg-gray-100 hover:bg-gray-200 text-gray-800 p-2.5 rounded-full transition active:scale-95 relative">
+                    <i class="ti ti-menu-2 text-lg"></i>
+                    <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border border-white"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Baris Bawah: Tabs Navigasi Underline Aktif -->
+        <nav class="flex justify-around items-center h-12 border-t border-gray-100 text-gray-500 max-w-[1250px] mx-auto">
+            <button onclick="switchTab('beranda')" id="tab-beranda" class="flex-1 h-full flex flex-col items-center justify-center border-b-[3px] border-emerald-600 text-emerald-600 transition-all-300 active:bg-gray-50">
+                <i class="ti ti-smart-home text-2xl"></i>
+            </button>
+            <button onclick="switchTab('marketplace')" id="tab-marketplace" class="flex-1 h-full flex flex-col items-center justify-center border-b-[3px] border-transparent hover:text-emerald-500 transition-all-300 active:bg-gray-50">
+                <i class="ti ti-building-store text-2xl"></i>
+            </button>
+            <button onclick="switchTab('grup')" id="tab-grup" class="flex-1 h-full flex flex-col items-center justify-center border-b-[3px] border-transparent hover:text-emerald-500 transition-all-300 active:bg-gray-50">
+                <i class="ti ti-users text-2xl"></i>
+            </button>
+            <button onclick="switchTab('notifikasi')" id="tab-notifikasi" class="flex-1 h-full flex flex-col items-center justify-center border-b-[3px] border-transparent hover:text-emerald-500 transition-all-300 relative active:bg-gray-50">
+                <i class="ti ti-bell text-2xl"></i>
+                <span id="notif-dot" class="absolute top-2.5 right-6 bg-orange-500 w-2 h-2 rounded-full"></span>
+            </button>
+            <button onclick="switchTab('profile')" id="tab-profile" class="flex-1 h-full flex flex-col items-center justify-center border-b-[3px] border-transparent active:bg-gray-50">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&amp;h=100&amp;fit=crop" class="w-7 h-7 rounded-full object-cover border-2 border-transparent hover:border-emerald-500 transition-all-300"/>
+            </button>
+        </nav>
+    </header>
+
+    <!-- CONTAINER UTAMA -->
+    <div class="max-w-[1250px] mx-auto flex pt-28 min-h-screen">
+        
+        <!-- SIDEBAR NAVIGATION (Desktop Mode Only) -->
+        <aside class="w-[280px] p-4 hidden lg:block overflow-y-auto no-scrollbar flex-shrink-0 bg-white border-r border-gray-150 h-[calc(100vh-112px)] fixed top-28">
+            <div class="space-y-6">
+                <!-- User Profile Shortcut -->
+                <div onclick="switchTab('profile')" class="flex items-center gap-3 p-2 hover:bg-emerald-50 rounded-xl cursor-pointer transition">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&amp;h=100&amp;fit=crop" class="w-10 h-10 rounded-full border-2 border-emerald-500 object-cover"/>
+                    <div>
+                        <h4 class="font-bold text-sm text-gray-800">Amel</h4>
+                        <p class="text-xs text-emerald-600">Kreator Digital</p>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <h5 class="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 mb-2">Pintasan Anda</h5>
+                    <button onclick="switchTab('beranda')" class="w-full flex items-center gap-3 p-3 text-gray-600 hover:bg-emerald-50/50 hover:text-emerald-700 rounded-xl text-sm font-semibold transition text-left">
+                        <i class="ti ti-layout-dashboard text-xl text-emerald-500"></i>
+                        <span>Beranda Utama</span>
+                    </button>
+                    <button onclick="switchTab('marketplace')" class="w-full flex items-center gap-3 p-3 text-gray-600 hover:bg-emerald-50/50 hover:text-emerald-700 rounded-xl text-sm font-semibold transition text-left">
+                        <i class="ti ti-building-store text-xl text-orange-500"></i>
+                        <span>Pasar Tokopedia Grid</span>
+                    </button>
+                    <button onclick="switchTab('grup')" class="w-full flex items-center gap-3 p-3 text-gray-600 hover:bg-emerald-50/50 hover:text-emerald-700 rounded-xl text-sm font-semibold transition text-left">
+                        <i class="ti ti-users-group text-xl text-blue-500"></i>
+                        <span>Grup Komunitas</span>
+                    </button>
+                    <button onclick="switchTab('menu')" class="w-full flex items-center gap-3 p-3 text-gray-600 hover:bg-emerald-50/50 hover:text-emerald-700 rounded-xl text-sm font-semibold transition text-left">
+                        <i class="ti ti-menu-2 text-xl text-purple-500"></i>
+                        <span>Semua Menu (Garis 3)</span>
+                    </button>
+                </div>
+
+                <!-- Bagian CS Support (Bisa diatur melalui Layout Blogger) -->
+                <b:section id='sidebar-support' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='HTML10' locked='false' title='CS Support Widget' type='HTML' version='2'>
+                        <b:widget-settings>
+                            <b:widget-setting name='content'><![CDATA[
+                                <div class="p-4 bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-2xl shadow-md">
+                                    <h4 class="font-bold text-sm mb-1">Butuh Bantuan?</h4>
+                                    <p class="text-xs leading-relaxed mb-3 opacity-90">Hubungi langsung cs admin kami untuk transaksi via WA.</p>
+                                    <a href="https://wa.me/6283654488111" target="_blank" class="block text-center bg-white text-emerald-700 font-bold text-xs py-2 rounded-xl hover:bg-emerald-50 transition shadow">Hubungi Kami</a>
+                                </div>
+                            ]]></b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                            <data:content/>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+        </aside>
+
+        <!-- MAIN LAYOUT FEED DAN HALAMAN-HALAMAN -->
+        <main class="flex-1 lg:ml-[300px] px-3 md:px-6 pb-20 w-full max-w-full overflow-x-hidden">
+            
+            <!-- FORM PENCARIAN UTAMA -->
+            <div id="main-search-wrapper" class="bg-white p-3.5 rounded-2xl shadow-sm border border-gray-100 mb-4">
+                <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&amp;h=80&amp;fit=crop" class="w-10 h-10 rounded-full object-cover border border-emerald-500"/>
+                    <div class="flex-1 relative">
+                        <input type="text" id="search-main" oninput="liveSearch()" placeholder="Apa yang kamu cari hari ini? Cari artikel atau produk..." 
+                               class="w-full bg-gray-100 hover:bg-gray-200/70 focus:bg-white rounded-full py-2.5 pl-10 pr-4 text-sm font-medium border border-transparent focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all-300"/>
+                        <i class="ti ti-search absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                    </div>
+                </div>
+                <!-- Status Info Pencarian Aktif -->
+                <div id="search-active-bar" class="hidden mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs">
+                    <span class="text-emerald-700 font-bold bg-emerald-50 px-3 py-1 rounded-full flex items-center gap-1.5">
+                        <i class="ti ti-filter"></i> Hasil pencarian aktif
+                    </span>
+                    <button onclick="resetSearch()" class="text-orange-500 font-bold hover:underline">Reset Pencarian</button>
+                </div>
+            </div>
+
+            <!-- ================= TAB: BERANDA FEED ================= -->
+            <div id="content-beranda" class="space-y-4">
+                
+                <!-- CAROUSEL CUPLIKAN ARTIKEL -->
+                <div class="relative mb-4 bg-white p-3 rounded-2xl border border-gray-100 shadow-xs overflow-hidden">
+                    <div class="flex justify-between items-center mb-2 px-1">
+                        <span class="text-xs font-black text-emerald-700 uppercase tracking-wider flex items-center gap-1 select-none">
+                            <i class="ti ti-news text-base"></i> Cuplikan Artikel Populer
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold select-none">Geser Manual <i class="ti ti-arrows-horizontal"></i></span>
+                    </div>
+                    
+                    <div class="flex gap-3 overflow-x-auto no-scrollbar py-1 snap-x scroll-smooth" id="articles-cuplikan-carousel">
+                        <!-- Di-generate dinamis oleh JS -->
+                    </div>
+                </div>
+
+                <!-- FEED DAFTAR ARTIKEL UTAMA (Terintegrasi Postingan Blogger) -->
+                <div id="posts-list" class="space-y-4">
+                    <b:section id='main-blog-sec' showaddelement='no'>
+                        <b:widget id='Blog1' locked='true' title='Postingan Blog' type='Blog' version='2'>
+                            <b:includable id='main' var='this'>
+                                <b:loop values='data:posts' var='post'>
+                                    <article class="post-card bg-white p-4 sm:p-5 rounded-2xl shadow-xs border border-gray-100 transition duration-300 hover:shadow-md" expr:data-keywords='data:post.title' expr:data-id='data:post.id'>
+                                        <div class="flex justify-between items-start mb-3">
+                                            <div class="flex items-center gap-3">
+                                                <b:if cond='data:post.author.authorPhoto'>
+                                                    <img expr:src="data:post.author.authorPhoto.image" class="w-10 h-10 rounded-full object-cover border"/>
+                                                <b:else/>
+                                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&amp;h=100&amp;fit=crop" class="w-10 h-10 rounded-full object-cover border"/>
+                                                </b:if>
+                                                <div>
+                                                    <h4 class="font-black text-sm text-gray-900 flex items-center gap-1.5 select-none">
+                                                        <data:post.author.name/> <span class="text-blue-600 text-xs font-bold hover:underline cursor-pointer">• Ikuti</span>
+                                                    </h4>
+                                                    <p class="text-[11px] text-gray-400"><data:post.date/> • <i class="ti ti-world"></i></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Post Body - Menggunakan kelas click-to-detail untuk Event Delegation bebas error XML -->
+                                        <div class="click-to-detail cursor-pointer group" expr:data-id='data:post.id'>
+                                            <h3 class="font-black text-base text-gray-900 group-hover:text-emerald-600 transition mb-1"><data:post.title/></h3>
+                                            <div class="text-sm text-gray-800 leading-relaxed mb-3">
+                                                <data:post.snippet/> <span class="text-emerald-600 font-bold underline text-xs">Baca Selengkapnya</span>
+                                            </div>
+                                            <b:if cond='data:post.featuredImage'>
+                                                <div class="rounded-xl overflow-hidden border border-gray-100 bg-gray-50 aspect-video sm:aspect-auto">
+                                                    <img expr:src="data:post.featuredImage" class="w-full object-cover max-h-[300px]"/>
+                                                </div>
+                                            </b:if>
+                                        </div>
+
+                                        <div class="flex justify-between items-center text-xs text-gray-500 border-b border-gray-100 py-3 mt-3 select-none">
+                                            <div class="flex items-center gap-1">
+                                                <span class="bg-blue-500 text-white rounded-full p-0.5 text-[8px] flex items-center justify-center"><i class="ti ti-thumb-up-filled"></i></span>
+                                                <span class="font-bold">128 Suka</span>
+                                                <span class="text-gray-300">|</span>
+                                                <span class="text-orange-600 font-bold flex items-center gap-0.5">
+                                                    <i class="ti ti-gift-filled"></i> <span>5</span> Donatur
+                                                </span>
+                                            </div>
+                                            <!-- Diganti menjadi click-to-detail untuk menghindari quota petik XML -->
+                                            <div class="click-to-detail flex gap-2 cursor-pointer hover:underline" expr:data-id='data:post.id'>
+                                                <span class="font-bold">Komentar</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Aksi Utama - Diintegrasikan menggunakan Class delegasi JS -->
+                                        <div class="flex justify-between text-gray-500 font-bold text-xs pt-2 relative gap-1">
+                                            <div class="relative flex-1">
+                                                <button class="btn-reaction-trigger w-full py-2 flex items-center justify-center gap-1.5 hover:bg-gray-50 rounded-xl transition text-gray-700 font-bold active:scale-95" expr:data-id='data:post.id'>
+                                                    <span expr:id='&quot;like-btn-icon-&quot; + data:post.id'><i class="ti ti-thumb-up"></i></span>
+                                                    <span expr:id='&quot;like-btn-text-&quot; + data:post.id'>Suka</span>
+                                                </button>
+                                                <div expr:id='&quot;reaction-popover-&quot; + data:post.id' class="absolute bottom-11 left-1/2 -translate-x-1/2 bg-white shadow-2xl border rounded-full px-2 py-1.5 hidden flex items-center gap-2.5 z-50 reaction-popover">
+                                                    <button class="btn-reaction-select transform hover:scale-130 transition text-lg" expr:data-id='data:post.id' data-reaction="like" data-emoji="👍" data-color="text-blue-500">👍</button>
+                                                    <button class="btn-reaction-select transform hover:scale-130 transition text-lg" expr:data-id='data:post.id' data-reaction="love" data-emoji="❤️" data-color="text-red-500">❤️</button>
+                                                    <button class="btn-reaction-select transform hover:scale-130 transition text-lg" expr:data-id='data:post.id' data-reaction="care" data-emoji="🥰" data-color="text-yellow-500">🥰</button>
+                                                    <button class="btn-reaction-select transform hover:scale-130 transition text-lg" expr:data-id='data:post.id' data-reaction="haha" data-emoji="😆" data-color="text-yellow-500">😆</button>
+                                                    <button class="btn-reaction-select transform hover:scale-130 transition text-lg" expr:data-id='data:post.id' data-reaction="wow" data-emoji="😮" data-color="text-yellow-500">😮</button>
+                                                    <button class="btn-reaction-select transform hover:scale-130 transition text-lg" expr:data-id='data:post.id' data-reaction="sad" data-emoji="😢" data-color="text-blue-400">😢</button>
+                                                </div>
+                                            </div>
+
+                                            <button class="click-to-detail flex-1 py-2 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-xl transition active:scale-95" expr:data-id='data:post.id'><i class="ti ti-message"></i> Komen</button>
+                                            <button expr:onclick='&quot;openDonationModal(\&quot;&quot; + data:post.author.name + &quot;\&quot;)&quot;' class="flex-1 py-2 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-xl transition text-orange-600 active:scale-95"><i class="ti ti-gift text-sm"></i> Donasi</button>
+                                            <button expr:onclick='&quot;nativeShare(\&quot;&quot; + data:post.title + &quot;\&quot;, \&quot;&quot; + data:post.url + &quot;\&quot;)&quot;' class="flex-1 py-2 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-xl transition active:scale-95"><i class="ti ti-share"></i> Bagikan</button>
+                                        </div>
+                                    </article>
+                                </b:loop>
+                            </b:includable>
+                        </b:widget>
+                    </b:section>
+                </div>
+            </div>
+
+            <!-- ================= TAB: MARKETPLACE (2 KOLOM) ================= -->
+            <div id="content-marketplace" class="hidden space-y-4">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-150 flex justify-between items-center">
+                    <div>
+                        <h2 class="font-black text-lg text-emerald-700">Pasar Belanja Modern</h2>
+                        <p class="text-xs text-gray-400">Checkout otomatis langsung ke WhatsApp Admin</p>
+                    </div>
+                    <span class="bg-orange-100 text-orange-600 font-bold text-xs px-2.5 py-1 rounded-full">Bebas Ongkir</span>
+                </div>
+
+                <div id="products-grid" class="grid grid-cols-2 gap-3 md:gap-4">
+                    <!-- Produk Tokopedia Style -->
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xs border border-gray-150 flex flex-col justify-between group hover:shadow-md transition duration-300" data-keywords="sepatu sneaker lari olahraga hijau">
+                        <div>
+                            <div class="relative overflow-hidden aspect-square bg-gray-50">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"/>
+                                <span class="absolute top-2 left-2 bg-emerald-500 text-white font-black text-[9px] px-2 py-0.5 rounded-md">Official Store</span>
+                            </div>
+                            <div class="p-3 pb-1">
+                                <h4 class="text-xs font-bold text-gray-800 line-clamp-2 leading-tight mb-1">Sepatu Sneakers Running Premium Emerald Edition</h4>
+                                <p class="text-sm font-black text-orange-600">Rp 299.000</p>
+                                <div class="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-bold">
+                                    <div class="flex text-amber-400"><i class="ti ti-star-filled"></i></div>
+                                    <span class="text-gray-700">4.9</span>
+                                    <span>•</span>
+                                    <span>Terjual 142</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 pt-2 space-y-2 border-t border-gray-50">
+                            <div class="flex gap-1">
+                                <button onclick="nativeShare('Sepatu Sneakers Running Premium', 'https://paperdoll.net/produk/sepatu')" class="bg-gray-100 hover:bg-gray-200 text-gray-600 p-2 rounded-xl transition flex-1 flex justify-center items-center active:scale-95">
+                                    <i class="ti ti-share text-sm"></i>
+                                </button>
+                                <button onclick="addToCart('Sepatu Sneakers Running Premium', 299000)" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-2 rounded-xl transition flex-1 flex justify-center items-center active:scale-95">
+                                    <i class="ti ti-shopping-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                            <button onclick="buyNow('Sepatu Sneakers Running Premium', 'Rp 299.000')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1 active:scale-95">
+                                <i class="ti ti-brand-whatsapp text-sm"></i> Beli Langsung
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card bg-white rounded-2xl overflow-hidden shadow-xs border border-gray-150 flex flex-col justify-between group hover:shadow-md transition duration-300" data-keywords="headphone audio headset bass earphone">
+                        <div>
+                            <div class="relative overflow-hidden aspect-square bg-gray-50">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"/>
+                                <span class="absolute top-2 left-2 bg-orange-500 text-white font-black text-[9px] px-2 py-0.5 rounded-md">Promo Gila</span>
+                            </div>
+                            <div class="p-3 pb-1">
+                                <h4 class="text-xs font-bold text-gray-800 line-clamp-2 leading-tight mb-1">Wireless Headphone Studio Pro Super Bass Clean Sound</h4>
+                                <p class="text-sm font-black text-orange-600">Rp 450.000</p>
+                                <div class="flex items-center gap-1 mt-1 text-[10px] text-gray-400 font-bold">
+                                    <div class="flex text-amber-400"><i class="ti ti-star-filled"></i></div>
+                                    <span class="text-gray-700">4.8</span>
+                                    <span>•</span>
+                                    <span>Terjual 90</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 pt-2 space-y-2 border-t border-gray-50">
+                            <div class="flex gap-1">
+                                <button onclick="nativeShare('Wireless Headphone Studio Pro', 'https://paperdoll.net/produk/headphone')" class="bg-gray-100 hover:bg-gray-200 text-gray-600 p-2 rounded-xl transition flex-1 flex justify-center items-center active:scale-95">
+                                    <i class="ti ti-share text-sm"></i>
+                                </button>
+                                <button onclick="addToCart('Wireless Headphone Studio Pro', 450000)" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 p-2 rounded-xl transition flex-1 flex justify-center items-center active:scale-95">
+                                    <i class="ti ti-shopping-cart-plus text-sm"></i>
+                                </button>
+                            </div>
+                            <button onclick="buyNow('Wireless Headphone Studio Pro', 'Rp 450.000')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-1 active:scale-95">
+                                <i class="ti ti-brand-whatsapp text-sm"></i> Beli Langsung
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB: GRUP KOMUNITAS ================= -->
+            <div id="content-grup" class="hidden space-y-4">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-black text-lg text-emerald-700 mb-2">Saluran Komunitas Terbuka</h3>
+                    <p class="text-xs text-gray-400 mb-5">Gabung bersama ribuan anggota lainnya di Telegram dan WhatsApp Channel resmi.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="bg-emerald-500 text-white p-2 rounded-xl"><i class="ti ti-brand-whatsapp text-2xl"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-gray-800">WhatsApp Channel Official</h4>
+                                        <p class="text-[10px] text-gray-500">Update tercepat info &amp; promo harian</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-600 mb-4">Dapatkan info terupdate mengenai event sosial, promo pasar, serta konten trending secara langsung.</p>
+                            </div>
+                            <a href="https://wa.me/6283654488111" target="_blank" class="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-1.5 shadow active:scale-95">
+                                <i class="ti ti-brand-whatsapp text-base"></i> Gabung WhatsApp Channel
+                            </a>
+                        </div>
+                        <div class="p-4 bg-sky-50 rounded-2xl border border-sky-100 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="bg-sky-500 text-white p-2 rounded-xl"><i class="ti ti-brand-telegram text-2xl"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-gray-800">Telegram Channel Official</h4>
+                                        <p class="text-[10px] text-gray-500">Diskusi bebas &amp; info viral global</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-600 mb-4">Saluran interaksi luas bersama komunitas nusantara dalam berbagi konten informatif.</p>
+                            </div>
+                            <a href="https://t.me/" target="_blank" class="w-full text-center bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-1.5 shadow active:scale-95">
+                                <i class="ti ti-brand-telegram text-base"></i> Gabung Telegram Channel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB: NOTIFIKASI + SEMUA ARTIKEL ================= -->
+            <div id="content-notifikasi" class="hidden space-y-4">
+                <!-- Cloud Kategori -->
+                <b:section id='cloud-labels' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='HTML12' locked='false' title='Cloud Kategori Kapsul' type='HTML' version='2'>
+                        <b:widget-settings>
+                            <b:widget-setting name='content'><![CDATA[
+                                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                                    <h4 class="font-bold text-xs text-gray-400 uppercase tracking-wider mb-2.5">Kategori Cloud Terpopuler</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <button onclick="setSearchAndTab('Alam', 'beranda')" class="bg-emerald-50 text-emerald-700 font-bold text-xs px-3.5 py-1.5 rounded-full border border-emerald-100 hover:bg-emerald-100 transition active:scale-95">#Alam 🌱</button>
+                                        <button onclick="setSearchAndTab('Hukum', 'beranda')" class="bg-emerald-50 text-emerald-700 font-bold text-xs px-3.5 py-1.5 rounded-full border border-emerald-100 hover:bg-emerald-100 transition active:scale-95">#Hukum ⚖️</button>
+                                        <button onclick="setSearchAndTab('Kurban', 'beranda')" class="bg-emerald-50 text-emerald-700 font-bold text-xs px-3.5 py-1.5 rounded-full border border-emerald-100 hover:bg-emerald-100 transition active:scale-95">#Kurban 🐑</button>
+                                        <button onclick="setSearchAndTab('Sepatu', 'marketplace')" class="bg-orange-50 text-orange-700 font-bold text-xs px-3.5 py-1.5 rounded-full border border-orange-100 hover:bg-orange-100 transition active:scale-95">#Sepatu 👟</button>
+                                    </div>
+                                </div>
+                            ]]></b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                            <data:content/>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-2 mb-3 pb-2 border-b">
+                        <i class="ti ti-list-details text-lg text-emerald-600"></i>
+                        <h4 class="font-black text-sm text-gray-800 uppercase tracking-wide">Semua Artikel</h4>
+                    </div>
+                    <div class="space-y-2 max-h-[350px] overflow-y-auto no-scrollbar" id="all-articles-list-container">
+                        <!-- Dipolulasi dinamis -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB: PROFILE & ABOUT ME ================= -->
+            <div id="content-profile" class="hidden space-y-4">
+                <!-- Sampul & Profil Header -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-36 bg-gradient-to-r from-emerald-500 to-orange-500 relative">
+                        <button class="absolute bottom-2 right-2 bg-black/60 text-white rounded-full p-2 hover:bg-black/80 transition text-xs"><i class="ti ti-camera"></i> Edit</button>
+                    </div>
+                    <div class="px-4 pb-4 relative">
+                        <div class="absolute -top-12 left-4">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&amp;h=150&amp;fit=crop" class="w-24 h-24 rounded-full border-4 border-white object-cover"/>
+                        </div>
+                        <div class="pt-14">
+                            <h3 class="font-black text-xl text-gray-900 flex items-center gap-2 select-none">
+                                Amel <i class="ti ti-discount-check-filled text-emerald-500 text-lg"></i>
+                            </h3>
+                            <p class="text-xs text-gray-500">Kreator Digital • paperdoll.co ☀️</p>
+                            <p class="text-xs text-emerald-600 mt-1 font-bold">2,6 rb <span class="text-gray-400">pengikut</span> • 73 <span class="text-gray-400">mengikuti</span> • 387 <span class="text-gray-400">postingan</span></p>
+                            
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <button onclick="showNotification('Masuk ke Dasbor Profesional')" class="flex-1 min-w-[120px] bg-blue-600 text-white text-xs font-bold py-2.5 rounded-xl hover:bg-blue-700 transition flex items-center justify-center gap-1.5 active:scale-95">
+                                    <i class="ti ti-device-analytics"></i> Dasbor profesional
+                                </button>
+                                <button onclick="showNotification('Cerita baru ditambahkan')" class="w-full bg-emerald-50 text-emerald-700 text-xs font-bold py-2.5 rounded-xl hover:bg-emerald-100 transition mt-1 active:scale-95">
+                                    <i class="ti ti-circle-plus"></i> Tambahkan ke cerita
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Detail Pribadi / Rincian / About Me -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+                    <div class="flex justify-between items-center border-b pb-2 select-none">
+                        <h4 class="font-black text-sm text-gray-900">Rincian &amp; Detail Pribadi (About Me)</h4>
+                        <button onclick="showNotification('Edit Rincian')" class="text-xs font-bold text-emerald-600 active:scale-95"><i class="ti ti-edit"></i> Edit</button>
+                    </div>
+                    <div class="space-y-3 text-xs text-gray-700 font-medium">
+                        <div class="flex items-center gap-3">
+                            <i class="ti ti-map-pin text-emerald-500 text-lg"></i>
+                            <span>Tempat Tinggal: Bogor, Indonesia</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ti ti-heart text-red-500 text-lg"></i>
+                            <span>Status Hubungan: <strong class="text-orange-600">Rumit</strong></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ti ti-clock text-emerald-500 text-lg"></i>
+                            <span>Jam Operasional Kerja: Selalu Buka (24 Jam)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= PROFILE MEDIA TABS SECTION ================= -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+                    <!-- Navigasi Sub-Tab Profil -->
+                    <div class="flex border-b border-gray-100 text-xs sm:text-sm font-bold text-gray-500 select-none">
+                        <button onclick="switchProfileTab('profile-artikel')" id="btn-profile-artikel" class="flex-1 pb-3 text-center border-b-2 border-emerald-600 text-emerald-600 transition flex items-center justify-center gap-1">
+                            <i class="ti ti-news text-base"></i> Artikel
+                        </button>
+                        <button onclick="switchProfileTab('profile-foto')" id="btn-profile-foto" class="flex-1 pb-3 text-center border-b-2 border-transparent hover:text-emerald-500 transition flex items-center justify-center gap-1">
+                            <i class="ti ti-photo text-base"></i> Foto
+                        </button>
+                        <button onclick="switchProfileTab('profile-video')" id="btn-profile-video" class="flex-1 pb-3 text-center border-b-2 border-transparent hover:text-emerald-500 transition flex items-center justify-center gap-1">
+                            <i class="ti ti-movie text-base"></i> Video
+                        </button>
+                    </div>
+                    
+                    <!-- Konten Tab Media -->
+                    <div id="profile-tab-contents">
+                        <!-- Sub-Tab 1: Artikel (Grid 3 Kolom Responsif) -->
+                        <div id="profile-artikel" class="grid grid-cols-3 gap-2">
+                            <!-- Diisi dinamis oleh JS dari data Blogger posts -->
+                        </div>
+
+                        <!-- Sub-Tab 2: Foto -->
+                        <div id="profile-foto" class="hidden grid grid-cols-3 gap-2">
+                            <div class="aspect-square rounded-xl overflow-hidden bg-gray-100 relative group cursor-pointer" onclick="showNotification('Menampilkan foto...')">
+                                <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=350&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"/>
+                            </div>
+                            <div class="aspect-square rounded-xl overflow-hidden bg-gray-100 relative group cursor-pointer" onclick="showNotification('Menampilkan foto...')">
+                                <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=350&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"/>
+                            </div>
+                            <div class="aspect-square rounded-xl overflow-hidden bg-gray-100 relative group cursor-pointer" onclick="showNotification('Menampilkan foto...')">
+                                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=350&amp;fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"/>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Tab 3: Video (9:16) -->
+                        <div id="profile-video" class="hidden grid grid-cols-3 gap-2">
+                            <div class="aspect-[9/16] rounded-xl overflow-hidden bg-gray-950 relative group cursor-pointer" onclick="showNotification('Memutar Reels Batik...')">
+                                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=350&amp;fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300"/>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="bg-black/60 text-white rounded-full p-2.5 text-xs backdrop-blur-xs flex items-center justify-center shadow-lg"><i class="ti ti-player-play-filled"></i></span>
+                                </div>
+                            </div>
+                            <div class="aspect-[9/16] rounded-xl overflow-hidden bg-gray-950 relative group cursor-pointer" onclick="showNotification('Memutar Reels Otomotif...')">
+                                <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=350&amp;fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300"/>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="bg-black/60 text-white rounded-full p-2.5 text-xs backdrop-blur-xs flex items-center justify-center shadow-lg"><i class="ti ti-player-play-filled"></i></span>
+                                </div>
+                            </div>
+                            <div class="aspect-[9/16] rounded-xl overflow-hidden bg-gray-950 relative group cursor-pointer" onclick="showNotification('Memutar Reels Alam...')">
+                                <img src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=350&amp;fit=crop" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300"/>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="bg-black/60 text-white rounded-full p-2.5 text-xs backdrop-blur-xs flex items-center justify-center shadow-lg"><i class="ti ti-player-play-filled"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB: PROFILE / MENU UTAMA (Layout Blogger Editable) ================= -->
+            <div id="content-menu" class="hidden space-y-4">
+                <div onclick="switchTab('profile')" class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&amp;h=100&amp;fit=crop" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-500"/>
+                        <div>
+                            <h4 class="font-black text-sm text-gray-900">Amel</h4>
+                            <p class="text-xs text-gray-500">Lihat profil Anda</p>
+                        </div>
+                    </div>
+                    <i class="ti ti-chevron-down text-lg text-gray-400"></i>
+                </div>
+
+                <!-- Pintasan Grid Menu List -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <h4 class="font-black text-xs text-gray-400 uppercase tracking-wider mb-3 select-none">Pintasan Anda</h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div onclick="switchTab('beranda')" class="bg-gray-50 p-3 rounded-xl border hover:bg-emerald-50 cursor-pointer transition">
+                            <i class="ti ti-layout-dashboard text-xl text-emerald-600 mb-1"></i>
+                            <h5 class="text-xs font-bold text-gray-800">Kabar Beranda</h5>
+                        </div>
+                        <div onclick="switchTab('marketplace')" class="bg-gray-50 p-3 rounded-xl border hover:bg-emerald-50 cursor-pointer transition">
+                            <i class="ti ti-building-store text-xl text-orange-500 mb-1"></i>
+                            <h5 class="text-xs font-bold text-gray-800">Pasar Belanja</h5>
+                        </div>
+                        <div onclick="switchTab('grup')" class="bg-gray-50 p-3 rounded-xl border hover:bg-emerald-50 cursor-pointer transition">
+                            <i class="ti ti-users-group text-xl text-blue-500 mb-1"></i>
+                            <h5 class="text-xs font-bold text-gray-800">Grup Komunitas</h5>
+                        </div>
+                        <div onclick="showNotification('Membuka video Reels')" class="bg-gray-50 p-3 rounded-xl border hover:bg-emerald-50 cursor-pointer transition">
+                            <i class="ti ti-movie text-xl text-red-500 mb-1"></i>
+                            <h5 class="text-xs font-bold text-gray-800">Reels</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Akordeon Bantuan, Dukungan, Pengaturan Sesuai Permintaan -->
+                <div class="space-y-2">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button onclick="toggleAccordion('accordion-help')" class="w-full flex items-center justify-between p-4 text-xs font-black text-gray-800 hover:bg-gray-50 transition">
+                            <span class="flex items-center gap-2.5 text-sm"><i class="ti ti-help-circle text-emerald-600 text-lg"></i> Bantuan dan dukungan</span>
+                            <i id="icon-accordion-help" class="ti ti-chevron-down text-gray-400 transition"></i>
+                        </button>
+                        <div id="accordion-help" class="hidden border-t border-gray-100 bg-gray-50/50 p-3 space-y-2 text-xs">
+                            <button onclick="setSearchAndTab('Hukum', 'beranda')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2 font-semibold text-gray-700">
+                                <i class="ti ti-category text-emerald-500"></i> Kategori Bantuan
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button onclick="toggleAccordion('accordion-settings')" class="w-full flex items-center justify-between p-4 text-xs font-black text-gray-800 hover:bg-gray-50 transition">
+                            <span class="flex items-center gap-2.5 text-sm"><i class="ti ti-settings text-orange-500 text-lg"></i> Pengaturan &amp; privasi</span>
+                            <i id="icon-accordion-settings" class="ti ti-chevron-down text-gray-400 transition"></i>
+                        </button>
+                        <div id="accordion-settings" class="hidden border-t border-gray-100 bg-gray-50/50 p-3 space-y-2 text-xs font-bold text-gray-700">
+                            <button onclick="openInfoPage('about')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2">
+                                <i class="ti ti-info-circle text-emerald-600"></i> 1. Tentang Kami (About)
+                            </button>
+                            <button onclick="openInfoPage('contact')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2">
+                                <i class="ti ti-phone text-emerald-600"></i> 2. Kontak Kami (Contact)
+                            </button>
+                            <button onclick="openInfoPage('privacy')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2">
+                                <i class="ti ti-lock text-emerald-600"></i> 3. Kebijakan Privasi (Privacy Policy)
+                            </button>
+                            <button onclick="openInfoPage('disclaimer')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2">
+                                <i class="ti ti-shield-alert text-emerald-600"></i> 4. Penyangkalan (Disclaimer)
+                            </button>
+                            <button onclick="openInfoPage('terms')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2">
+                                <i class="ti ti-file-text text-emerald-600"></i> 5. Syarat &amp; Ketentuan (Terms)
+                            </button>
+                            <button onclick="openInfoPage('faq')" class="w-full text-left p-2.5 hover:bg-white rounded-xl transition flex items-center gap-2">
+                                <i class="ti ti-help text-emerald-600"></i> 6. Pertanyaan Umum (FAQ)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian Sosmed Widget -->
+                <b:section id='sidebar-social-sec' maxwidgets='1' showaddelement='yes'>
+                    <b:widget id='HTML15' locked='false' title='Social Media Widget' type='HTML' version='2'>
+                        <b:widget-settings>
+                            <b:widget-setting name='content'><![CDATA[
+                                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <i class="ti ti-discount-check-filled text-blue-600 text-3xl"></i>
+                                        <div>
+                                            <h5 class="font-black text-sm text-gray-900">Verifikasi Akun Meta & Sosial Media</h5>
+                                            <p class="text-[10px] text-gray-400">Terhubung langsung dengan kanal interaksi kami</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3.5 mt-2">
+                                        <a href="https://instagram.com" target="_blank" class="p-3 bg-red-50/50 hover:bg-red-50 rounded-xl border border-red-100 flex items-center gap-2 transition">
+                                            <i class="ti ti-brand-instagram text-red-600 text-xl"></i>
+                                            <div>
+                                                <span class="block text-[10px] text-gray-400 font-bold">Instagram</span>
+                                                <span class="text-xs font-black text-gray-700">@paperdoll_co</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://tiktok.com" target="_blank" class="p-3 bg-gray-50 hover:bg-gray-100 rounded-xl border border-gray-200 flex items-center gap-2 transition">
+                                            <i class="ti ti-brand-tiktok text-gray-900 text-xl"></i>
+                                            <div>
+                                                <span class="block text-[10px] text-gray-400 font-bold">TikTok</span>
+                                                <span class="text-xs font-black text-gray-700">@paperdoll.co</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            ]]></b:widget-setting>
+                        </b:widget-settings>
+                        <b:includable id='main'>
+                            <data:content/>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+
+            <!-- ================= HALAMAN DETAIL ARTIKEL (RESPONSIF & FITUR DONASI LENGKAP) ================= -->
+            <div id="content-article-detail" class="hidden space-y-4">
+                <button onclick="switchTab('beranda')" class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3.5 py-2.5 rounded-xl border border-emerald-100 w-fit transition hover:bg-emerald-100">
+                    <i class="ti ti-arrow-left"></i> Kembali ke Beranda
+                </button>
+
+                <article class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img id="detail-author-avatar" src="" class="w-11 h-11 rounded-full object-cover border"/>
+                        <div>
+                            <h3 id="detail-author-name" class="font-black text-sm text-gray-900">Nama Penulis</h3>
+                            <p id="detail-post-time" class="text-xs text-gray-400">Waktu Post</p>
+                        </div>
+                    </div>
+                    
+                    <h2 id="detail-post-title" class="font-black text-xl text-gray-900">Judul Postingan</h2>
+                    <p id="detail-post-content" class="text-sm text-gray-800 leading-relaxed">Isi artikel lengkap...</p>
+                    
+                    <div id="detail-img-container" class="rounded-xl overflow-hidden bg-gray-50 border hidden">
+                        <img id="detail-post-img" src="" class="w-full h-auto max-h-[400px] object-cover"/>
+                    </div>
+
+                    <!-- Meta statistik interaksi detail artikel -->
+                    <div class="flex justify-between items-center text-xs text-gray-500 border-y py-3 mt-4 select-none">
+                        <div class="flex items-center gap-1.5">
+                            <span class="bg-blue-500 text-white rounded-full p-0.5 text-[8px] flex items-center justify-center"><i class="ti ti-thumb-up-filled"></i></span>
+                            <span class="font-bold" id="detail-likes-display">128 Suka</span>
+                            <span class="text-gray-300">•</span>
+                            <span class="text-orange-600 font-bold flex items-center gap-0.5">
+                                <i class="ti ti-gift-filled"></i> <span id="detail-donors-display">5</span> Donatur
+                            </span>
+                        </div>
+                        <span id="detail-comments-display" class="font-bold">Komentar</span>
+                    </div>
+
+                    <!-- Tombol Aksi Detail Artikel -->
+                    <div class="flex justify-between text-gray-500 font-bold text-xs pt-2 relative gap-1">
+                        <div class="relative flex-1">
+                            <button onclick="triggerReactionPopup(event, 'detail')" class="w-full py-2 flex items-center justify-center gap-1.5 hover:bg-gray-50 rounded-xl transition text-gray-700 font-bold active:scale-95">
+                                <span id="like-btn-icon-detail"><i class="ti ti-thumb-up"></i></span>
+                                <span id="like-btn-text-detail">Suka</span>
+                            </button>
+                            <div id="reaction-popover-detail" class="absolute bottom-11 left-1/2 -translate-x-1/2 bg-white shadow-2xl border rounded-full px-2 py-1.5 hidden flex items-center gap-2.5 z-50 reaction-popover">
+                                <button onclick="selectReaction('detail', 'like', '👍', 'text-blue-500')" class="transform hover:scale-130 transition text-lg">👍</button>
+                                <button onclick="selectReaction('detail', 'love', '❤️', 'text-red-500')" class="transform hover:scale-130 transition text-lg">❤️</button>
+                                <button onclick="selectReaction('detail', 'care', '🥰', 'text-yellow-500')" class="transform hover:scale-130 transition text-lg">🥰</button>
+                                <button onclick="selectReaction('detail', 'haha', '😆', 'text-yellow-500')" class="transform hover:scale-130 transition text-lg">😆</button>
+                                <button onclick="selectReaction('detail', 'wow', '😮', 'text-yellow-500')" class="transform hover:scale-130 transition text-lg">😮</button>
+                                <button onclick="selectReaction('detail', 'sad', '😢', 'text-blue-400')" class="transform hover:scale-130 transition text-lg">😢</button>
+                            </div>
+                        </div>
+
+                        <button onclick="focusCommentInput()" class="flex-1 py-2 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-xl transition active:scale-95"><i class="ti ti-message"></i> Komen</button>
+                        <button onclick="openDonationModalForActiveArticle()" class="flex-1 py-2 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-xl transition text-orange-600 active:scale-95"><i class="ti ti-gift text-sm"></i> Donasi</button>
+                        <button onclick="shareActiveArticle()" class="flex-1 py-2 flex items-center justify-center gap-1 hover:bg-gray-50 rounded-xl transition active:scale-95"><i class="ti ti-share"></i> Bagikan</button>
+                    </div>
+
+                    <!-- Kolom Komentar Real-Time -->
+                    <div class="border-t pt-4 mt-2">
+                        <h4 class="font-black text-xs text-gray-400 uppercase tracking-wider mb-3 select-none">Kolom Komentar</h4>
+                        <div class="flex gap-2 mb-4">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&amp;h=100&amp;fit=crop" class="w-8 h-8 rounded-full object-cover"/>
+                            <div class="flex-1 flex gap-2">
+                                <input type="text" id="comment-input" placeholder="Tulis komentar publik Anda..." class="flex-1 bg-gray-100 px-3.5 py-2 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:bg-white border border-transparent focus:border-emerald-500"/>
+                                <button onclick="submitComment()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 rounded-xl transition active:scale-95">Kirim</button>
+                            </div>
+                        </div>
+
+                        <div id="comments-container" class="space-y-4"></div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ================= VIEW / HALAMAN DINAMIS INFO LEGAL (6 HALAMAN) ================= -->
+            <div id="content-info-page" class="hidden space-y-4">
+                <button onclick="switchTab('menu')" class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3.5 py-2.5 rounded-xl border border-emerald-100 w-fit transition hover:bg-emerald-100">
+                    <i class="ti ti-arrow-left"></i> Kembali ke Menu
+                </button>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h2 id="info-page-title" class="font-black text-xl text-emerald-700 border-b pb-3 mb-4">Judul Halaman</h2>
+                    <div id="info-page-content" class="text-sm text-gray-600 leading-relaxed space-y-4"></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAL POPUP DONASI PLATFORM & KREATOR -->
+    <div id="donation-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl p-6 transform scale-95 transition-all-300">
+            <div class="flex justify-between items-center pb-3.5 border-b border-gray-100 mb-4">
+                <h3 class="font-black text-lg text-orange-600 flex items-center gap-2 select-none">
+                    <i class="ti ti-gift"></i> Dukungan Donasi Kreator
+                </h3>
+                <button onclick="closeDonationModal()" class="text-gray-400 hover:bg-gray-100 p-1.5 rounded-full"><i class="ti ti-x text-lg"></i></button>
+            </div>
+            
+            <p class="text-xs text-gray-500 mb-3 leading-relaxed">Kirim donasi apresiasi Anda untuk mendukung karya tulisan berkualitas tinggi secara langsung:</p>
+            <div class="bg-emerald-50 border border-emerald-100 p-3 rounded-2xl mb-4 flex items-center gap-2">
+                <i class="ti ti-user-check text-emerald-600 text-xl"></i>
+                <div class="text-xs">
+                    <span class="block text-gray-400 font-bold">Penerima Manfaat</span>
+                    <strong id="donation-recipient-name" class="text-emerald-800 text-sm font-black">Nama Kreator</strong>
+                </div>
+            </div>
+
+            <!-- Metode Pembayaran E-Wallet -->
+            <div class="space-y-2.5 max-h-[280px] overflow-y-auto no-scrollbar">
+                <!-- DANA -->
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-blue-500 text-white rounded-xl p-2 font-black text-xs">DANA</span>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 font-black">No. E-Wallet</span>
+                            <strong class="text-xs text-gray-800 font-bold">083654488111</strong>
+                        </div>
+                    </div>
+                    <button onclick="copyDonationNumber('083654488111', 'DANA')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[10px] px-3 py-1.5 rounded-lg transition active:scale-95">Salin</button>
+                </div>
+
+                <!-- OVO -->
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-purple-600 text-white rounded-xl p-2 font-black text-xs">OVO</span>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 font-black">No. E-Wallet</span>
+                            <strong class="text-xs text-gray-800 font-bold">083654488111</strong>
+                        </div>
+                    </div>
+                    <button onclick="copyDonationNumber('083654488111', 'OVO')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[10px] px-3 py-1.5 rounded-lg transition active:scale-95">Salin</button>
+                </div>
+
+                <!-- GOPAY -->
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-teal-500 text-white rounded-xl p-2 font-black text-xs">GOPAY</span>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 font-black">No. E-Wallet</span>
+                            <strong class="text-xs text-gray-800 font-bold">083654488111</strong>
+                        </div>
+                    </div>
+                    <button onclick="copyDonationNumber('083654488111', 'GoPay')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-[10px] px-3 py-1.5 rounded-lg transition active:scale-95">Salin</button>
+                </div>
+
+                <!-- SHOPEEPAY -->
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-orange-500 text-white rounded-xl p-2 font-black text-xs">SPay</span>
+                        <div>
+                            <span class="block text-[10px] text-gray-400 font-black">No. E-Wallet</span>
+                            <strong class="text-xs text-gray-800 font-bold">083654488111</strong>
+                        </div>
+                    </div>
+                    <button onclick="copyDonationNumber('083654488111', 'ShopeePay')" class="bg-emerald-50 hover:bg-emerald-100 text-white font-bold text-[10px] px-3 py-1.5 rounded-lg transition active:scale-95">Salin</button>
+                </div>
+            </div>
+
+            <!-- Konfirmasi Via WhatsApp -->
+            <button onclick="confirmDonationViaWA()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black text-xs py-3 rounded-2xl transition mt-4 flex items-center justify-center gap-1.5 active:scale-95">
+                <i class="ti ti-brand-whatsapp text-base"></i> Konfirmasi Transfer Donasi
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL KERANJANG BELANJA -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl p-6">
+            <div class="flex justify-between items-center pb-3 border-b border-gray-100 mb-4 select-none">
+                <h3 class="font-black text-lg text-emerald-700 flex items-center gap-2">
+                    <i class="ti ti-shopping-cart"></i> Keranjang Belanja
+                </h3>
+                <button onclick="closeCartModal()" class="text-gray-400 hover:bg-gray-100 p-1.5 rounded-full"><i class="ti ti-x text-lg"></i></button>
+            </div>
+            <div id="cart-items-container" class="space-y-3 max-h-[300px] overflow-y-auto no-scrollbar mb-4">
+                <p class="text-gray-400 text-center py-6 text-sm">Keranjang Anda masih kosong.</p>
+            </div>
+            <div class="border-t border-gray-100 pt-4 flex justify-between items-center mb-4 text-sm font-bold select-none">
+                <span>Total Estimasi:</span>
+                <span id="cart-total-price" class="text-orange-500">Rp 0</span>
+            </div>
+            <button onclick="checkoutCart()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-3 rounded-xl transition flex items-center justify-center gap-1.5 active:scale-95">
+                <i class="ti ti-brand-whatsapp text-lg"></i> Checkout Semua via WA
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTTOM MOBILE NAVIGATION (Hanya tampil di HP) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-150 h-14 flex items-center justify-around z-35 pb-safe select-none">
+        <button onclick="switchTab('beranda')" id="mobile-tab-beranda" class="flex flex-col items-center justify-center text-emerald-600 active:scale-95">
+            <i class="ti ti-smart-home text-2xl"></i>
+            <span class="text-[9px] font-black">Beranda</span>
+        </button>
+        <button onclick="switchTab('marketplace')" id="mobile-tab-marketplace" class="flex flex-col items-center justify-center text-gray-400 active:scale-95">
+            <i class="ti ti-building-store text-2xl"></i>
+            <span class="text-[9px] font-black">Pasar</span>
+        </button>
+        <button onclick="switchTab('grup')" id="mobile-tab-grup" class="flex flex-col items-center justify-center text-gray-400 active:scale-95">
+            <i class="ti ti-users text-2xl"></i>
+            <span class="text-[9px] font-black">Grup</span>
+        </button>
+        <button onclick="switchTab('notifikasi')" id="mobile-tab-notifikasi" class="flex flex-col items-center justify-center text-gray-400 active:scale-95">
+            <i class="ti ti-bell text-2xl"></i>
+            <span class="text-[9px] font-black">Notif</span>
+        </button>
+    </nav>
+
+    <!-- LOGIKA JAVASCRIPT UTAMA (Blogger Parser & Client Engine) -->
+    <script type='text/javascript'>
+        //<![CDATA[
+        // Database artikel lokal (Bakal diekstraksi dari database postingan asli Blogger)
+        let articlesDB = {};
+        let cart = [];
+        let currentTab = 'beranda';
+        let currentArticleOpen = null;
+        let activeDonationRecipient = "Paperdoll";
+
+        const searchInput = document.getElementById('search-main');
+        const searchActiveBar = document.getElementById('search-active-bar');
+        const toast = document.getElementById('toast');
+        const toastText = document.getElementById('toast-text');
+
+        // Mengambil isi postingan Blogger asli dan dimasukkan ke database dinamis di browser klien
+        function parseBloggerPostsToLocalDB() {
+            const postCards = document.querySelectorAll('.post-card');
+            postCards.forEach((card) => {
+                const postId = String(card.getAttribute('data-id') || Math.random().toString(36).substr(2, 9));
+                const authorElement = card.querySelector('h4');
+                const authorName = authorElement ? authorElement.textContent.replace('• Ikuti', '').trim() : "Admin";
+                
+                // Cari avatar penulis
+                const authorImgEl = card.querySelector('img');
+                const authorAvatar = authorImgEl ? authorImgEl.src : "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop";
+                
+                // Cari waktu
+                const timeEl = card.querySelector('p');
+                const time = timeEl ? timeEl.textContent : "Baru saja";
+                
+                // Cari judul
+                const titleEl = card.querySelector('h3');
+                const title = titleEl ? titleEl.textContent : "Artikel Tanpa Judul";
+                
+                // Cari konten teks
+                const contentEl = card.querySelector('.text-sm');
+                const content = contentEl ? contentEl.textContent.replace('Baca Selengkapnya', '').trim() : "";
+                
+                // Cari gambar utama postingan
+                const imageElement = card.querySelector('.aspect-video img, img[expr:src], img');
+                const image = imageElement ? imageElement.src : "https://images.unsplash.com/photo-1588681664899-f142ff2bac99?w=800&fit=crop";
+
+                articlesDB[postId] = {
+                    id: postId,
+                    authorName: authorName,
+                    avatar: authorAvatar,
+                    time: time,
+                    title: title,
+                    content: content,
+                    image: image,
+                    likes: 128,
+                    donors: 5,
+                    comments: []
+                };
+            });
+
+            // Sediakan 12 dummy data estetik agar carousel cuplikan, beranda, profil, dan daftar artikel selalu terisi indah
+            const backupDB = {
+                "1": {
+                    id: "1",
+                    authorName: "Fans KDM",
+                    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop",
+                    time: "7 jam • Bumi",
+                    title: "Ketegasan KDM Menolak Damai Kasus Pembakaran Gedung Sate",
+                    content: "Inilah ketegasan KDM Menolak Damai Pada DODI Pelahu Pembakar Gedung Sate..! Harus di hukum karena merugikan banyak pihak yang ada di area perkantoran. Mari kita kawal terus hukum agar berkeadilan untuk masyarakat umum.",
+                    image: "https://images.unsplash.com/photo-1588681664899-f142ff2bac99?w=800&fit=crop",
+                    likes: 797,
+                    donors: 5,
+                    comments: []
+                },
+                "2": {
+                    id: "2",
+                    authorName: "Iyan Mithriz",
+                    avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&h=100&fit=crop",
+                    time: "20 jam • Publik",
+                    title: "Hukum Berqurban Menggunakan Dana APBN Menurut Syariat",
+                    content: "Bagaimana Hukum Qurban pakai APBN? Berikut adalah penjelasan lengkap dari para pakar hukum Islam nasional mengenai anggaran ibadah. Semoga dapat memberikan penjelasan yang mencerahkan seluruh lapisan warga.",
+                    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&fit=crop",
+                    likes: 14,
+                    donors: 12,
+                    comments: []
+                },
+                "3": {
+                    id: "3",
+                    authorName: "Rudi Haryanto",
+                    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&h=100&fit=crop",
+                    time: "1 hari • Alam",
+                    title: "Upaya Penyelamatan Orangutan di Kalimantan",
+                    content: "Upaya penyelamatan Orangutan di wilayah Kalimantan terus digencarkan. Kelestarian satwa liar adalah warisan tak ternilai bagi anak cucu kita di masa mendatang. Lindungi habitat asli mereka!",
+                    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&fit=crop",
+                    likes: 312,
+                    donors: 8,
+                    comments: []
+                },
+                "4": {
+                    id: "4",
+                    authorName: "Farida Yeni",
+                    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+                    time: "1 hari • Kuliner",
+                    title: "Resep Nasi Goreng Kampung Otentik Bumbu Ulek",
+                    content: "Resep Nasi Goreng Kampung otentik bumbu ulek tradisional jawa tengah. Rasanya legit, pedas gurih, dan sangat pas dinikmati malam hari selagi hangat. Wajib dicoba di dapur rumah Anda!",
+                    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&fit=crop",
+                    likes: 420,
+                    donors: 19,
+                    comments: []
+                },
+                "5": {
+                    id: "5",
+                    authorName: "Tekno Gadget",
+                    avatar: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=100&h=100&fit=crop",
+                    time: "2 hari • Teknologi",
+                    title: "Masa Depan Disrupsi AI dan Otomasi Industri",
+                    content: "Perkembangan kecerdasan buatan (AI) di era modern kini semakin pesat. Mulai dari sistem otomasi hingga asisten cerdas, bagaimana kesiapan kita menghadapi disrupsi teknologi kerja?",
+                    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&fit=crop",
+                    likes: 189,
+                    donors: 2,
+                    comments: []
+                },
+                "6": {
+                    id: "6",
+                    authorName: "Hendra Wijaya",
+                    avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop",
+                    time: "2 hari • Wisata",
+                    title: "Keindahan Tersembunyi Wisata Alam Curug",
+                    content: "Keindahan tersembunyi Curug Banjarnegara. Aliran airnya yang jernih dipadu dengan batuan tebing vulkanik kuno menyajikan nuansa relaksasi batin yang sempurna dari hiruk pikuk kota.",
+                    image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&fit=crop",
+                    likes: 245,
+                    donors: 6,
+                    comments: []
+                },
+                "7": {
+                    id: "7",
+                    authorName: "Siti Rahma",
+                    avatar: "https://images.unsplash.com/photo-1534751516642-a131fed10495?w=100&h=100&fit=crop",
+                    time: "3 hari • Gaya Hidup",
+                    title: "Pentingnya Yoga Pagi untuk Produktivitas Medis",
+                    content: "Mengapa memulai hari dengan minum air putih hangat dan peregangan yoga ringan dapat mengubah mood produktivitas Anda sepanjang hari? Ini penjelasannya secara medis.",
+                    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&fit=crop",
+                    likes: 133,
+                    donors: 4,
+                    comments: []
+                },
+                "8": {
+                    id: "8",
+                    authorName: "Aris Munandar",
+                    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
+                    time: "3 hari • Olahraga",
+                    title: "Persiapan Atlet Maraton Menjelang Musim Panas",
+                    content: "Persiapan fisik atlet lari nasional menjelang kompetisi maraton musim panas. Latihan pernapasan di dataran tinggi sangat efektif meningkatkan volume paru-paru secara alami.",
+                    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&fit=crop",
+                    likes: 98,
+                    donors: 1,
+                    comments: []
+                },
+                "9": {
+                    id: "9",
+                    authorName: "Desi Fitriani",
+                    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
+                    time: "4 hari • Arsitektur",
+                    title: "Mengenal Rumah Adat Joglo dan Filosofinya",
+                    content: "Mengenal arsitektur rumah adat Joglo Jawa Tengah yang sarat akan makna filosofi kehidupan, kerukunan bertetangga, serta keselarasan dengan alam sekitarnya.",
+                    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&fit=crop",
+                    likes: 167,
+                    donors: 3,
+                    comments: []
+                },
+                "10": {
+                    id: "10",
+                    authorName: "Budiono",
+                    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop",
+                    time: "4 hari • Pertanian",
+                    title: "Penerapan Sistem Hidroponik Skala Rumahan",
+                    content: "Penerapan sistem hidroponik modern skala rumahan terbukti mampu menghemat pengeluaran belanja sayur keluarga hingga 40%. Praktis, bersih, dan menyehatkan tanpa pestisida kimia.",
+                    image: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=800&fit=crop",
+                    likes: 215,
+                    donors: 11,
+                    comments: []
+                },
+                "11": {
+                    id: "11",
+                    authorName: "Eva Rosiana",
+                    avatar: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=100&h=100&fit=crop",
+                    time: "5 hari • Seni",
+                    title: "Seni Canting Tradisional Batik Tulis",
+                    content: "Seni membatik tulis tradisional membutuhkan kesabaran tingkat tinggi. Setiap canting lilin malam yang ditiup dan ditorehkan membawa doa dan harapan keindahan abadi.",
+                    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&fit=crop",
+                    likes: 310,
+                    donors: 15,
+                    comments: []
+                },
+                "12": {
+                    id: "12",
+                    authorName: "Gali Reksa",
+                    avatar: "https://images.unsplash.com/photo-1489980508314-941910ded1f4?w=100&h=100&fit=crop",
+                    time: "5 hari • Otomotif",
+                    title: "Tips Sederhana Merawat Transmisi Motor Matic",
+                    content: "Tips merawat mesin motor matic agar tetap responsif, bertenaga, dan irit bahan bakar untuk mobilitas harian di kota padat. Jangan abai mengganti oli transmisi secara berkala!",
+                    image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&fit=crop",
+                    likes: 178,
+                    donors: 7,
+                    comments: []
+                }
+            };
+
+            // Gabungkan atau ganti jika tidak ada artikel nyata dari feed Blogger
+            Object.keys(backupDB).forEach(key => {
+                if (!articlesDB[key]) {
+                    articlesDB[key] = backupDB[key];
+                }
+            });
+        }
+
+        // Render Cuplikan Carousel secara Dinamis dari Postingan Blogger Anda
+        function renderCuplikanCarousel() {
+            const carouselContainer = document.getElementById('articles-cuplikan-carousel');
+            if (!carouselContainer) return;
+            carouselContainer.innerHTML = "";
+
+            Object.values(articlesDB).forEach(article => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = "click-to-detail relative w-28 sm:w-32 h-44 sm:h-48 rounded-2xl overflow-hidden shadow-sm flex-shrink-0 cursor-pointer snap-start group border border-emerald-500/10";
+                itemDiv.setAttribute('data-id', String(article.id));
+                itemDiv.innerHTML = `
+                    <img src="${article.image}" alt="Preview" class="w-full h-full object-cover transition-all-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1588681664899-f142ff2bac99?w=800&fit=crop'"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute top-2 left-2 bg-emerald-500 rounded-full p-0.5 border border-white">
+                        <img src="${article.avatar}" alt="Author" class="w-6 h-6 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50&h=50&fit=crop'"/>
+                    </div>
+                    <div class="absolute bottom-2 left-2 right-2">
+                        <p class="text-[10px] text-emerald-300 font-bold tracking-wider uppercase mb-0.5">${article.authorName}</p>
+                        <p class="text-white text-[10px] font-black leading-tight line-clamp-2 drop-shadow-sm">${article.title}</p>
+                    </div>
+                `;
+                carouselContainer.appendChild(itemDiv);
+            });
+        }
+
+        // Render Semua Daftar Artikel di Tab Notifikasi
+        function renderAllArticlesList() {
+            const listContainer = document.getElementById('all-articles-list-container');
+            if (!listContainer) return;
+            listContainer.innerHTML = "";
+
+            Object.values(articlesDB).forEach(article => {
+                const row = document.createElement('div');
+                row.className = "click-to-detail p-3 bg-gray-50 hover:bg-emerald-50 rounded-xl cursor-pointer transition flex items-center gap-3 border border-gray-100";
+                row.setAttribute('data-id', String(article.id));
+                row.innerHTML = `
+                    <img src="${article.image}" alt="Thumb" class="w-12 h-12 rounded-lg object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1588681664899-f142ff2bac99?w=800&fit=crop'"/>
+                    <div class="min-w-0 flex-1">
+                        <h5 class="font-bold text-xs text-gray-900 truncate">${article.title}</h5>
+                        <p class="text-[10px] text-gray-400 mt-0.5">Penulis: ${article.authorName} • ${article.time}</p>
+                    </div>
+                    <i class="ti ti-chevron-right text-gray-400"></i>
+                `;
+                listContainer.appendChild(row);
+            });
+        }
+
+        // Render Portfolio Grid 3-Kolom di Tab Profil
+        function renderProfileTabMedia() {
+            const profileArtikelContainer = document.getElementById('profile-artikel');
+            if (!profileArtikelContainer) return;
+            profileArtikelContainer.innerHTML = "";
+
+            const limitedArticles = Object.values(articlesDB).slice(0, 3);
+            limitedArticles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = "click-to-detail group cursor-pointer bg-gray-50 rounded-xl overflow-hidden border border-gray-100 flex flex-col justify-between hover:shadow-xs transition duration-300";
+                card.setAttribute('data-id', String(article.id));
+                card.innerHTML = `
+                    <div class="aspect-video w-full overflow-hidden bg-gray-200">
+                        <img src="${article.image}" class="w-full h-full object-cover group-hover:scale-105 transition-all-300" onerror="this.src='https://images.unsplash.com/photo-1588681664899-f142ff2bac99?w=800&fit=crop'"/>
+                    </div>
+                    <div class="p-1.5 sm:p-2.5">
+                        <span class="text-[8px] sm:text-[9px] font-black text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">POST</span>
+                        <h5 class="font-bold text-[9px] sm:text-xs text-gray-800 line-clamp-2 mt-1 leading-tight">${article.title}</h5>
+                    </div>
+                `;
+                profileArtikelContainer.appendChild(card);
+            });
+        }
+
+        // Membuka Halaman Detail Artikel Secara Mulus & Teruji
+        function openArticleDetail(articleId) {
+            articleId = String(articleId);
+            currentArticleOpen = articleId;
+            const data = articlesDB[articleId];
+            if (!data) return;
+
+            document.getElementById('detail-author-avatar').src = data.avatar;
+            document.getElementById('detail-author-name').textContent = data.authorName;
+            document.getElementById('detail-post-time').innerHTML = data.time + " • <i class='ti ti-world'></i>";
+            document.getElementById('detail-post-title').textContent = data.title;
+            document.getElementById('detail-post-content').textContent = data.content;
+
+            const detailImg = document.getElementById('detail-post-img');
+            const imgContainer = document.getElementById('detail-img-container');
+            if (data.image) {
+                detailImg.src = data.image;
+                imgContainer.classList.remove('hidden');
+            } else {
+                imgContainer.classList.add('hidden');
+            }
+
+            document.getElementById('detail-likes-display').textContent = data.likes + " Suka";
+            document.getElementById('detail-donors-display').textContent = data.donors || 0;
+
+            // Reset Like Button detail
+            document.getElementById('like-btn-icon-detail').innerHTML = "<i class='ti ti-thumb-up'></i>";
+            document.getElementById('like-btn-text-detail').innerHTML = "Suka";
+
+            renderComments();
+            switchTab('article-detail');
+        }
+
+        // Global Event Delegation yang sangat aman dari error Xml Blogger
+        document.addEventListener('click', function(e) {
+            // 1. Delegasi klik untuk buka detail artikel
+            const clickable = e.target.closest('.click-to-detail');
+            if (clickable) {
+                const postId = clickable.getAttribute('data-id');
+                if (postId) {
+                    openArticleDetail(postId);
+                    return;
+                }
+            }
+
+            // 2. Delegasi klik untuk memicu Reaction Popover
+            const trigger = e.target.closest('.btn-reaction-trigger');
+            if (trigger) {
+                e.stopPropagation();
+                const postId = trigger.getAttribute('data-id');
+                const popover = document.getElementById('reaction-popover-' + postId);
+                if (popover) {
+                    popover.classList.toggle('hidden');
+                }
+                return;
+            }
+
+            // 3. Delegasi klik untuk memilih reaksi
+            const selection = e.target.closest('.btn-reaction-select');
+            if (selection) {
+                e.stopPropagation();
+                const postId = selection.getAttribute('data-id');
+                const reaction = selection.getAttribute('data-reaction');
+                const emoji = selection.getAttribute('data-emoji');
+                const color = selection.getAttribute('data-color');
+                selectReaction(postId, reaction, emoji, color);
+                return;
+            }
+        });
+
+        function showNotification(message) {
+            toastText.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Fokus ke input pencarian
+        function focusSearchInput() {
+            searchInput.focus();
+            searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Fokus ke input komentar
+        function focusCommentInput() {
+            const input = document.getElementById('comment-input');
+            if (input) {
+                input.focus();
+                input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Set kueri pencarian dan pindah tab
+        function setSearchAndTab(queryText, tabName) {
+            searchInput.value = queryText;
+            switchTab(tabName);
+            liveSearch();
+        }
+
+        // Penyaringan pencarian real-time
+        function liveSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            const postCards = document.querySelectorAll('.post-card');
+            const productCards = document.querySelectorAll('.product-card');
+
+            if (query === "") {
+                resetSearch();
+                return;
+            }
+            searchActiveBar.classList.remove('hidden');
+
+            if (currentTab === 'beranda') {
+                postCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(query) ? 'block' : 'none';
+                });
+            } else if (currentTab === 'marketplace') {
+                productCards.forEach(card => {
+                    const keywords = card.getAttribute('data-keywords').toLowerCase();
+                    const title = card.querySelector('h4').textContent.toLowerCase();
+                    card.style.display = (keywords.includes(query) || title.includes(query)) ? 'flex' : 'none';
+                });
+            }
+        }
+
+        function resetSearch() {
+            searchInput.value = "";
+            searchActiveBar.classList.add('hidden');
+            const postCards = document.querySelectorAll('.post-card');
+            const productCards = document.querySelectorAll('.product-card');
+            postCards.forEach(card => card.style.display = 'block');
+            productCards.forEach(card => card.style.display = 'flex');
+        }
+
+        // Fungsi Perpindahan Tab Utama
+        function switchTab(tabId) {
+            currentTab = tabId;
+            resetSearch();
+
+            document.getElementById('content-beranda').classList.add('hidden');
+            document.getElementById('content-marketplace').classList.add('hidden');
+            document.getElementById('content-grup').classList.add('hidden');
+            document.getElementById('content-notifikasi').classList.add('hidden');
+            document.getElementById('content-profile').classList.add('hidden');
+            document.getElementById('content-menu').classList.add('hidden');
+            document.getElementById('content-article-detail').classList.add('hidden');
+            document.getElementById('content-info-page').classList.add('hidden');
+
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+
+            const tabs = ['beranda', 'marketplace', 'grup', 'notifikasi', 'profile'];
+            tabs.forEach(t => {
+                const tabBtn = document.getElementById('tab-' + t);
+                const mobileTabBtn = document.getElementById('mobile-tab-' + t);
+                if (tabBtn) {
+                    if (t === tabId) {
+                        tabBtn.classList.add('border-emerald-600', 'text-emerald-600');
+                        tabBtn.classList.remove('border-transparent', 'text-gray-400');
+                    } else {
+                        tabBtn.classList.add('border-transparent', 'text-gray-400');
+                        tabBtn.classList.remove('border-emerald-600', 'text-emerald-600');
+                    }
+                }
+                if (mobileTabBtn) {
+                    if (t === tabId) {
+                        mobileTabBtn.classList.add('text-emerald-600');
+                        mobileTabBtn.classList.remove('text-gray-400');
+                    } else {
+                        mobileTabBtn.classList.add('text-gray-400');
+                        mobileTabBtn.classList.remove('text-emerald-600');
+                    }
+                }
+            });
+
+            if (tabId === 'notifikasi') {
+                document.getElementById('notif-dot').classList.add('hidden');
+            }
+        }
+
+        function selectReaction(postId, reactionKey, emoji, textColorClass) {
+            postId = String(postId);
+            const iconId = postId === 'detail' ? 'like-btn-icon-detail' : 'like-btn-icon-' + postId;
+            const textId = postId === 'detail' ? 'like-btn-text-detail' : 'like-btn-text-' + postId;
+            
+            const btnIcon = document.getElementById(iconId);
+            const btnText = document.getElementById(textId);
+            
+            if (btnIcon && btnText) {
+                btnIcon.innerHTML = "<span class='text-lg'>" + emoji + "</span>";
+                btnText.innerHTML = "<span class='" + textColorClass + "'>" + reactionKey.toUpperCase() + "</span>";
+            }
+            
+            const popover = document.getElementById('reaction-popover-' + postId);
+            if (popover) {
+                popover.classList.add('hidden');
+            }
+
+            if (postId === 'detail' || postId === currentArticleOpen) {
+                const data = articlesDB[currentArticleOpen];
+                if (data) {
+                    data.likes += 1;
+                    const likesDisplay = document.getElementById('detail-likes-display');
+                    if (likesDisplay) likesDisplay.textContent = data.likes + " Suka";
+                }
+            }
+
+            showNotification("Menanggapi dengan reaksi " + emoji);
+        }
+
+        // Buka Pop-up Donasi Dompet Digital
+        function openDonationModal(recipientName) {
+            activeDonationRecipient = recipientName;
+            document.getElementById('donation-recipient-name').textContent = recipientName;
+            document.getElementById('donation-modal').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('donation-modal').querySelector('div').classList.remove('scale-95');
+                document.getElementById('donation-modal').querySelector('div').classList.add('scale-100');
+            }, 50);
+        }
+
+        function openDonationModalForActiveArticle() {
+            if (currentArticleOpen && articlesDB[currentArticleOpen]) {
+                openDonationModal(articlesDB[currentArticleOpen].authorName);
+            }
+        }
+
+        // Penutupan Modal Donasi
+        function closeDonationModal() {
+            document.getElementById('donation-modal').querySelector('div').classList.remove('scale-100');
+            document.getElementById('donation-modal').querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                document.getElementById('donation-modal').classList.add('hidden');
+            }, 150);
+        }
+
+        function copyDonationNumber(number, provider) {
+            const tempInput = document.createElement('input');
+            tempInput.value = number;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showNotification("Nomor E-Wallet " + provider + " berhasil disalin!");
+        }
+
+        function confirmDonationViaWA() {
+            const waNumber = "6283654488111";
+            const text = "Halo Admin Paperdoll,\n\nSaya telah mengirimkan dukungan donasi kepada kreator *" + activeDonationRecipient + "*.\n\nMohon bantu verifikasi donasi saya. Terima kasih banyak!";
+            
+            // Simulasikan penambahan jumlah donatur lokal
+            if (currentArticleOpen && articlesDB[currentArticleOpen]) {
+                articlesDB[currentArticleOpen].donors += 1;
+                const detailDonorsDisplay = document.getElementById('detail-donors-display');
+                if (detailDonorsDisplay) {
+                    detailDonorsDisplay.textContent = articlesDB[currentArticleOpen].donors;
+                }
+            }
+
+            closeDonationModal();
+            const url = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            if (el) {
+                el.classList.toggle('hidden');
+                if (icon) {
+                    icon.classList.toggle('rotate-185');
+                }
+            }
+        }
+
+        function openInfoPage(pageKey) {
+            const data = infoPagesDB[pageKey];
+            if (!data) return;
+            document.getElementById('info-page-title').textContent = data.title;
+            document.getElementById('info-page-content').innerHTML = data.content;
+            switchTab('info-page');
+        }
+
+        function nativeShare(title, url) {
+            if (navigator.share) {
+                navigator.share({ title: title, text: 'Baca artikel ini di Paperdoll!', url: url })
+                .then(() => showNotification('Terima kasih telah membagikan!'))
+                .catch((err) => console.log('Gagal share:', err));
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = title + ": " + url;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showNotification('Tautan berhasil disalin ke clipboard Anda!');
+            }
+        }
+
+        function shareActiveArticle() {
+            if (currentArticleOpen && articlesDB[currentArticleOpen]) {
+                const data = articlesDB[currentArticleOpen];
+                nativeShare(data.title, 'https://paperdoll-emerald.net/post/' + data.id);
+            }
+        }
+
+        function buyNow(name, price) {
+            const waNumber = "6283654488111";
+            const text = "Halo Paperdoll,\nSaya tertarik dengan produk:\n*" + name + "* seharga *" + price + "*.\n\nApakah barang ready? Mohon info kelanjutannya.";
+            const url = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+
+        function addToCart(name, price) {
+            const exist = cart.find(item => item.name === name);
+            if (exist) {
+                exist.qty += 1;
+            } else {
+                cart.push({ name: name, price: price, qty: 1 });
+            }
+            updateCartUI();
+            showNotification('"' + name + '" ditambahkan ke keranjang belanja.');
+        }
+
+        function switchProfileTab(subTabId) {
+            document.getElementById('profile-artikel').classList.add('hidden');
+            document.getElementById('profile-foto').classList.add('hidden');
+            document.getElementById('profile-video').classList.add('hidden');
+
+            const tabsList = ['profile-artikel', 'profile-foto', 'profile-video'];
+            tabsList.forEach(tab => {
+                const btn = document.getElementById('btn-' + tab);
+                if (tab === subTabId) {
+                    btn.classList.add('border-emerald-600', 'text-emerald-600');
+                    btn.classList.remove('border-transparent', 'text-gray-500');
+                } else {
+                    btn.classList.add('border-transparent', 'text-gray-500');
+                    btn.classList.remove('border-emerald-600', 'text-emerald-600');
+                }
+            });
+
+            document.getElementById(subTabId).classList.remove('hidden');
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalDisplay = document.getElementById('cart-total-price');
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            container.innerHTML = "";
+
+            if (cart.length === 0) {
+                container.innerHTML = "<p class='text-gray-400 text-center py-6 text-sm'>Keranjang Anda masih kosong.</p>";
+                badge.textContent = "0";
+                totalDisplay.textContent = "Rp 0";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                totalQty += item.qty;
+                totalPrice += (item.price * item.qty);
+
+                const div = document.createElement('div');
+                div.className = "flex justify-between items-center bg-gray-50 p-2.5 rounded-xl border";
+                div.innerHTML = `
+                    <div class="min-w-0 flex-1">
+                        <h5 class="text-xs font-bold text-gray-800 truncate">${item.name}</h5>
+                        <p class="text-[10px] text-gray-500">Rp ${item.price.toLocaleString('id-ID')} x ${item.qty}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="changeQty(${index}, -1)" class="bg-gray-200 hover:bg-gray-300 w-6 h-6 rounded text-xs font-bold">-</button>
+                        <span class="text-xs font-bold">${item.qty}</span>
+                        <button onclick="changeQty(${index}, 1)" class="bg-gray-200 hover:bg-gray-300 w-6 h-6 rounded text-xs font-bold">+</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            badge.textContent = totalQty;
+            totalDisplay.textContent = "Rp " + totalPrice.toLocaleString('id-ID');
+        }
+
+        function changeQty(index, val) {
+            cart[index].qty += val;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function showCartModal() {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) return;
+            const waNumber = "6283654488111";
+            let msg = "Halo Paperdoll, saya ingin membeli dari keranjang:\n\n";
+            let grandTotal = 0;
+            cart.forEach((item, i) => {
+                const sub = item.price * item.qty;
+                grandTotal += sub;
+                msg += (i+1) + ". " + item.name + " (" + item.qty + "x) -> Rp " + sub.toLocaleString('id-ID') + "\n";
+            });
+            msg += "\n*Total Tagihan:* Rp " + grandTotal.toLocaleString('id-ID');
+            window.open("https://wa.me/" + waNumber + "?text=" + encodeURIComponent(msg), '_blank');
+        }
+
+        function renderComments() {
+            const container = document.getElementById('comments-container');
+            if (!container) return;
+            container.innerHTML = "";
+            const comments = (currentArticleOpen && articlesDB[currentArticleOpen]) ? articlesDB[currentArticleOpen].comments : [];
+
+            if (comments.length === 0) {
+                container.innerHTML = "<p class='text-xs text-gray-400 text-center py-4'>Belum ada komentar. Jadilah yang pertama berkomentar!</p>";
+                document.getElementById('detail-comments-display').textContent = "0 Komentar";
+                return;
+            }
+
+            comments.forEach(c => {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = "space-y-2 bg-gray-50/50 p-3 rounded-2xl border border-gray-100";
+                commentDiv.innerHTML = `
+                    <div class="flex gap-2.5 items-start">
+                        <img src="${c.avatar}" class="w-8 h-8 rounded-full object-cover"/>
+                        <div class="flex-1">
+                            <div class="bg-gray-100 p-2.5 rounded-2xl w-fit max-w-full">
+                                <span class="block font-black text-xs text-gray-900">${c.user}</span>
+                                <p class="text-xs text-gray-700 leading-normal mt-0.5">${c.text}</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-[10px] text-gray-400 font-bold mt-1.5 px-1 relative">
+                                <span class="text-emerald-600 cursor-pointer font-black">${c.reaction || 'Suka'}</span>
+                                <button onclick="toggleReplyInput(${c.id})" class="hover:underline hover:text-orange-500">Balas</button>
+                                <span>${c.time}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(commentDiv);
+            });
+
+            document.getElementById('detail-comments-display').textContent = comments.length + " Komentar";
+        }
+
+        function submitComment() {
+            const input = document.getElementById('comment-input');
+            const txt = input.value.trim();
+            if (!txt) return;
+
+            if (!articlesDB[currentArticleOpen].comments) {
+                articlesDB[currentArticleOpen].comments = [];
+            }
+
+            const newComment = {
+                id: Date.now(),
+                user: "Amel",
+                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&amp;h=100&amp;fit=crop",
+                text: txt,
+                time: "Baru saja",
+                reaction: "",
+                replies: []
+            };
+
+            articlesDB[currentArticleOpen].comments.push(newComment);
+            input.value = "";
+            renderComments();
+            showNotification('Komentar Anda berhasil diposting!');
+        }
+
+        window.onload = () => {
+            parseBloggerPostsToLocalDB();
+            renderCuplikanCarousel();
+            renderAllArticlesList();
+            renderProfileTabMedia();
+
+            if ('serviceWorker' in navigator) {
+                try {
+                    navigator.serviceWorker.register('./sw.js')
+                    .then(reg => {
+                        console.log('PWA aktif:', reg.scope);
+                    })
+                    .catch(err => {
+                        console.warn('Registrasi Service Worker dilewati di sandbox:', err.message);
+                    });
+                } catch (e) {
+                    console.warn('PWA tidak didukung di lingkungan sandbox ini:', e.message);
+                }
+            }
+        };
+        //]]>
+    </script>
+</body>
+</html>
